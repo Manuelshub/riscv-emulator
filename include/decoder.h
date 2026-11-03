@@ -3,19 +3,20 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdbool.h>
 
 typedef enum {
 	OP_INVALID = 0,
 	OP_ADD,
 	OP_SUB,
 	OP_ADDI,
-	OP_AND,
-	OP_OR,
-	OP_XOR,
-	OP_LOAD,
-	OP_STORE,
-	OP_BRANCH,
-	OP_JUMP
+	// OP_AND,
+	// OP_OR,
+	// OP_XOR,
+	// OP_LOAD,
+	// OP_STORE,
+	// OP_BRANCH,
+	// OP_JUMP
 } Operation;
 
 typedef struct {
@@ -26,7 +27,6 @@ typedef struct {
 	int32_t imm;
 } decoded_instruction;
 
-int decode_instruction(uint32_t instruction, decoded_instruction *decoded);
-static int32_t sign_extend(uint32_t value, unsigned bits);
+bool decode_instruction(uint32_t instruction, decoded_instruction *decoded);
 
 #endif
