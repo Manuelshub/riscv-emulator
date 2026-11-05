@@ -1,11 +1,17 @@
 #include "../include/decoder.h"
 #include <stdint.h>
 
+static int32_t sign_extend(uint32_t value, unsigned bits) {
+	uint32_t sign_bit = 1u << (bits - 1);
+
+	return (int32_t)((value ^ sign_bit) - sign_bit);
+}
+
 /*
  * decode_instruction - decodes the instruction binary, breaking down it's part into
  * 						it's appropriate register, opcode, e.t.c
  */
-int decode_instruction(uint32_t instruction, decoded_instruction *decoded) {
+bool decode_instruction(uint32_t instruction, decoded_instruction *decoded) {
 	uint32_t opcode, raw_imm;
 	uint8_t rd, funct3, rs1, rs2, funct7;
 
@@ -45,10 +51,4 @@ int decode_instruction(uint32_t instruction, decoded_instruction *decoded) {
 		return 0;
 
 	return 1;
-}
-
-static int32_t sign_extend(uint32_t value, unsigned bits) {
-	uint32_t sign_bit = 1u << (bits - 1);
-
-	return (int32_t)((value ^ sign_bit) - sign_bit);
 }

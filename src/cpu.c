@@ -43,6 +43,9 @@ bool cpu_read_register(const cpu_state *cpu, uint8_t reg, uint32_t *value) {
 	return true;
 }
 
+/*
+ * cpu_write_register - write the content of value into the register.
+ */
 bool cpu_write_register(cpu_state *cpu, uint8_t reg, uint32_t value) {
 	if (cpu == NULL)
 		return false;
@@ -65,6 +68,9 @@ uint32_t cpu_get_pc(const cpu_state *cpu) {
 	return cpu->pc;
 }
 
+/*
+ * cpu_set_pc - Sets the Program counter value
+ */
 void cpu_set_pc(cpu_state *cpu, uint32_t address) {
 	if (cpu == NULL)
 		return;
