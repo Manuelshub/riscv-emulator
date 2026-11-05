@@ -3,6 +3,6 @@
 
 #include "cpu.h"
 
-void execute_instruction(cpu_state *cpu, decoded_instruction decoded);
+bool execute_instruction(cpu_state *cpu, decoded_instruction decoded);
 
 #endif

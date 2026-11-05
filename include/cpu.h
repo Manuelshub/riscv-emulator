@@ -10,7 +10,6 @@ typedef struct {
 	uint32_t pc;
 } cpu_state;
 
-void execute_instruction(cpu_state *cpu, decoded_instruction decoded);
 void cpu_init(cpu_state *cpu);
 bool cpu_read_register(const cpu_state *cpu, uint8_t reg, uint32_t *value);
 bool cpu_write_register(cpu_state *cpu, uint8_t reg, uint32_t value);
